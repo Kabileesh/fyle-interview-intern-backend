@@ -10,7 +10,10 @@ set -e
 export FLASK_APP=core/server.py
 
 # Reset the db file to the given state
-rm instance/store.sqlite3
+if [ -f "core/store.sqlite3" ]; then
+    # Remove the file if it exists
+    rm core/store.sqlite3
+fi
 
 echo "db reset done"
 

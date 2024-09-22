@@ -11,7 +11,7 @@ services:
   db:
     image: nouchka/sqlite3:latest
     volumes:
-      - ./instance:/app/instance
+      - ./core:/app/core
     command: ["sqlite3"]
 
 volumes:
