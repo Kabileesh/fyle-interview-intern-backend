@@ -1,33 +1,46 @@
-# Fyle Backend Challenge
+# Flask Backend Application
 
-## Who is this for?
-
-This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. You should be able to commit to at least 6 months of dedicated time for internship.
-
-## Why work at Fyle?
-
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
-
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
-
-
-## Challenge outline
-
-**You are allowed to use any online/AI tool such as ChatGPT, Gemini, etc. to complete the challenge. However, we expect you to fully understand the code and logic involved.**
-
-This challenge involves writing a backend service for a classroom. The challenge is described in detail [here](./Application.md)
-
-
-## What happens next?
-
-You will hear back within 48 hours from us via email. 
-
+This repository contains a Flask backend application using **gunicorn**, **SQLite**, and **pytest** for testing. The application can be run locally or through Docker for easier setup and deployment.
 
 ## Installation
 
 1. Fork this repository to your github account
 2. Clone the forked repository and proceed with steps mentioned below
+ 
+## 1. Docker Setup:
+## Pre-requisites:
+Ensure the following tools are installed on your machine:
 
+* [Docker](https://docs.docker.com/desktop/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+
+## Build and Run the Application Using Docker Compose:
+### a) Start the Application:
+To build and start the Docker container, run the following command in the root of your application:
+
+``` 
+docker-compose up
+```
+
+This command will:
+* Build the Docker image for the Flask application.
+* Start the application container, exposing it on port **7755**.
+
+You can now access the application at: **http://localhost:7755**
+
+### b) Stop the Application:
+To stop and remove the containers, run:
+```
+docker-compose down
+```
+
+### Additional Guides:
+* To run the containers in the background: ``` docker-compose up -d ```
+* To force a rebuild without cache: ``` docker-compose build --no-cache ```
+
+<hr>
+
+## 2. Local Setup (Without Docker):
 ### Install requirements
 
 ```
