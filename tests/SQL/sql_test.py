@@ -44,7 +44,7 @@ def create_n_graded_assignments_for_teacher(number: int = 0, teacher_id: int = 1
             grade_a_counter = grade_a_counter + 1
 
     # Commit changes to the database
-    db.session.commit()
+    db.session.flush()
 
     # Return the count of assignments with grade 'A'
     return grade_a_counter
@@ -63,7 +63,7 @@ def test_get_assignments_in_graded_state_for_each_student():
     # Flush the changes to the database session
     db.session.flush()
     # Commit the changes to the database
-    db.session.commit()
+    # db.session.commit()
 
     # Define the expected result before any changes
     expected_result = [(1, 3)]
@@ -76,6 +76,8 @@ def test_get_assignments_in_graded_state_for_each_student():
     sql_result = db.session.execute(text(sql)).fetchall()
     for itr, result in enumerate(expected_result):
         assert result[0] == sql_result[itr][0]
+    
+    db.session.rollback()
 
 
 def test_get_grade_A_assignments_for_teacher_with_max_grading():
@@ -98,3 +100,4 @@ def test_get_grade_A_assignments_for_teacher_with_max_grading():
     # Execute the SQL query again and check if the count matches the newly created assignments
     sql_result = db.session.execute(text(sql)).fetchall()
     assert grade_a_count_2 == sql_result[0][0]
+    db.session.rollback()
