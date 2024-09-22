@@ -16,9 +16,11 @@ Ensure the following tools are installed on your machine:
 
 ## Build and Run the Application Using Docker Compose:
 ### a) Start the Application:
-To build and start the Docker container, run the following command in the root of your application:
+To build and start the Docker container, run the following commands in the root of your application:
 
-``` 
+```
+docker-compose build
+
 docker-compose up
 ```
 
