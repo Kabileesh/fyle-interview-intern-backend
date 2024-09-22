@@ -82,7 +82,7 @@ class Assignment(db.Model):
     def mark_grade(cls, _id, grade, auth_principal: AuthPrincipal):
         assignment = Assignment.get_by_id(_id)
         assertions.assert_found(assignment, 'No assignment with this id was found')
-        assertions.assert_valid(auth_principal.student_id == assignment.student_id)
+        assertions.assert_valid(auth_principal.teacher_id == assignment.teacher_id)
         assertions.assert_valid(grade in GradeEnum._value2member_map_, 'Invalid grade provided')
         assertions.assert_valid(assignment.state == AssignmentStateEnum.SUBMITTED)
         
