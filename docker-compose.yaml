@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "7755:7755"
+    environment:
+      - FLASK_ENV=development
+
+  db:
+    image: nouchka/sqlite3:latest
+    volumes:
+      - ./instance:/app/instance
+    command: ["sqlite3"]
+
+volumes:
+  sqlite_data:

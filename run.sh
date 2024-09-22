@@ -9,9 +9,15 @@ set -e
 # Run required migrations
 export FLASK_APP=core/server.py
 
-# flask db init -d core/migrations/
-# flask db migrate -m "Initial migration." -d core/migrations/
-# flask db upgrade -d core/migrations/
+# Reset the db file to the given state
+rm instance/store.sqlite3
+
+echo "db reset done"
+
+# Update the db data from the migration data given
+flask db upgrade -d core/migrations/
+
+echo "db migration done"
 
 # Run server
 gunicorn -c gunicorn_config.py core.server:app

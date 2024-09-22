@@ -1,0 +1,20 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+env/
+venv/
+
+# Ignore local environment files
+.env
+
+# Ignore pytest cache
+.pytest_cache/
+
+# Ignore test reports and coverage data
+htmlcov/
+.coverage
+*.log
